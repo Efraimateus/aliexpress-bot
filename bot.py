@@ -14,7 +14,7 @@ all_combos = list(itertools.combinations(letters,7))
 all_combos = [''.join(combo) for combo in all_combos] 
 email = random.sample(all_combos,1)[0]+'@gmail.com' 
 
-password = "Senhaestranha1#"
+password = "senhasdash"
 
 # emulador de celular pq a pagina so funciona em modo mobile 
 mobile_emulation = {
@@ -49,12 +49,5 @@ driver.get('https://a.aliexpress.com/_mqVZCUl')
 
 time.sleep(2)
 driver.find_element_by_xpath('//*[@id="root"]/div/div[2]/div[4]/div/a/span').click()
-
-# driver.find_element_by_class_name('am-button deal-success-panel--ActionButton--XonjbmV am-button-primary').click()
-
-# driver.find_elements_by_xpath("//*[@class='am-button deal-success-panel--ActionButton--XonjbmV am-button-primary']").click()
-
-# driver.find_elements_by_css_selector(".am-button deal-success-panel--ActionButton--XonjbmV am-button-primary").click()
-
-driver.find_elements_by_xpath("//*[@class='am-button deal-success-panel--ActionButton--XonjbmV am-button-primary']")
-# am-button deal-success-panel--ActionButton--XonjbmV am-button-primary
+time.sleep(2)
+driver.find_element_by_link_text("Continuar").click()
