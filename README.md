@@ -1,0 +1,1 @@
+Bot que cria contas com emails aleatorios no aliexpress e clica nos links para dar desconto em um produto p alguem.

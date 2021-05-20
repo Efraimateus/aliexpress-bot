@@ -11,7 +11,7 @@ import random
 x = 0
 
 while(x == 0):
-   print ("Gerando email... Configurando senha...")
+  
    # gera emails aleatorios 
    letters = ["a", "b","c", "d","e", "f","g", "h","i", "j","k", "l","m", "n", "o", "p","q", "r","s", "t","u", "v","w", "x","y", "z",]
    all_combos = list(itertools.combinations(letters,7)) 
@@ -21,7 +21,6 @@ while(x == 0):
    password = "senhasdash"
 
    # emulador de celular pq a pagina so funciona em modo mobile 
-   print ("Configurando o chrome para abrir em modo emulador...")
    mobile_emulation = {
 
       "deviceMetrics": { "width": 360, "height": 640, "pixelRatio": 3.0 },
@@ -30,14 +29,15 @@ while(x == 0):
 
    chrome_options = Options()
 
-   chrome_options.add_argument('headless')
+   #chrome_options.add_argument('headless')
 
    chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
 
    driver = webdriver.Chrome(chrome_options = chrome_options)
    
-   print ("Abrindo website...  https://a.aliexpress.com/_mqVZCUl ")
-   driver.get('https://a.aliexpress.com/_mqVZCUl')
+   seu_link = 'https://a.aliexpress.com/_m0aGUvF'
+
+   driver.get(seu_link)
 
    time.sleep(2)
    driver.find_element_by_xpath('//*[@id="root"]/div/div[2]/div[4]/div/a/span').click()
@@ -49,19 +49,17 @@ while(x == 0):
    driver.find_element_by_xpath('//*[@id="msite-login"]/div/div[2]/div[1]/div/ul/li[1]/div').click()
                                                      
    time.sleep(3)
-   print ("Logando...") 
    driver.find_element_by_xpath('//*[@id="msite-login"]/div/div[2]/div[2]/div[1]/div/div/div/div[4]/div[1]/input').send_keys(email)
    driver.find_element_by_xpath('//*[@id="msite-login"]/div/div[2]/div[2]/div[1]/div/div/div/div[4]/div[2]/input').send_keys(password)
    driver.find_element_by_xpath('//*[@id="msite-login"]/div/div[2]/div[2]/div[1]/div/div/div/div[4]/div[5]/a').click()
    time.sleep(3)
-   print ("Login feito com sucesso...") 
-   driver.get('https://a.aliexpress.com/_mqVZCUl')
+   driver.get(seu_link)
 
    time.sleep(2)
    driver.find_element_by_xpath('//*[@id="root"]/div/div[2]/div[4]/div/a/span').click()
    time.sleep(2)
    driver.find_element_by_link_text("Continuar").click()
    time.sleep(2)
-   print ("Serviço feito, fechando o driver para recomeçar. TCHAU ✌")
+  
    driver.close()
 
